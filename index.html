@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/50ba960c66.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            sm: '480px',
+            md: '768px',
+            lg: '976px',
+            xl: '1280px',
+            '2xl': '1440px',
+          },
+          colors: {
+            deepGray: '#323136',
+            lightNavy: '#2B4865',
+            red: '#E94560',
+            gray: '#C8C6C6',
+            light: '#d8d8d8',
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Music Player</title>
+  </head>
+  <body class="bg-light text-[#C8C6C6]">
+    <div>
+      <div
+        class="lg:w-4/12 w-11/12 bg-deepGray mx-auto  rounded-xl shadow-2xl mt-[5rem]"
+      >
+        <div class="flex flex-col justify-center items-center p-10">
+          <h2 class="text-gray text-[.8rem] mt-4">
+            Now Playing <span class="mx-2"><i class="fa-solid fa-music"></i></span> Adel Go easy on me <span class="mx-2"><i class="fa-solid fa-music"></i></span>
+          </h2>
+          <div
+            class="bg-[#716F81] w-[9rem] h-[9rem] border-[1px] border-[#16003B] mt-6 rounded-2xl shadow-2xl"
+          >
+            <img class="w-full h-full" src="./img/albam-cover.jpg" alt="" />
+          </div>
+          <div class="text-light text-center mt-4">
+            <h2 class="text-[1.6rem]">Track Name</h2>
+            <h2 class="text-[.8rem]">Track Artist</h2>
+          </div>
+          <div class="text-gray flex items-center justify-center gap-6 w-full mt-6">
+            <div><i class="fa-solid fa-backward-step"></i></div>
+            <div
+              class="text-[2rem] bg-[#716F81] w-[4rem] h-[4rem] rounded-full flex items-center justify-center"
+            >
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <!-- <span><i class="fa-solid fa-pause"></i></span> -->
+            <div><i class="fa-solid fa-forward-step"></i></div>
+          </div>
+           <div class="mt-6 w-full flex flex-col justify-center items-center">
+           <div class="flex items-center justify-center w-7/12 gap-4"> 
+            <label for="time">00:00</label>
+            <input type="range" max="100" min="0" id="time" value="0" oninput="RangeSelector()">
+                <label for="time">00:00</label>
+          </div>
+           <div class="mt-6 text-gray flex items-center justify-center w-4/12 gap-4"> 
+            <span><i class="fa-solid fa-volume-low"></i></span>  
+         <input type="range" max="100" min="0" id="vol" value="0" oninput="RangeSelector()">
+         <span><i class="fa-solid fa-volume-high"></i></span>
+        </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-deepGray text-[.7rem] absolute bottom-4 left-4">&copy; 2022 | Kabir Hossain</p>
+    <script src="./script.js"></script>
+  </body>
+</html>
