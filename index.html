@@ -29,6 +29,7 @@
         },
       };
     </script>
+    <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="./style.css" />
     <title>Music Player</title>
   </head>
@@ -38,39 +39,40 @@
         class="lg:w-4/12 w-11/12 bg-deepGray mx-auto  rounded-xl shadow-2xl mt-[5rem]"
       >
         <div class="flex flex-col justify-center items-center p-10">
-          <h2 class="text-gray text-[.8rem] mt-4">
-            Now Playing <span class="mx-2"><i class="fa-solid fa-music"></i></span> Adel Go easy on me <span class="mx-2"><i class="fa-solid fa-music"></i></span>
+          <h2 class="text-gray text-[.8rem] mt-4" >
+            Now Playing <span class="mx-2"><i class="fa-solid fa-music"></i></span> <span id="nowPlaying">Adel Go easy on me</span> <span class="mx-2"><i class="fa-solid fa-music"></i></span>
           </h2>
           <div
-            class="bg-[#716F81] w-[9rem] h-[9rem] border-[1px] border-[#16003B] mt-6 rounded-2xl shadow-2xl"
-          >
-            <img class="w-full h-full" src="./img/albam-cover.jpg" alt="" />
+            class="bg-[#716F81] w-[9rem] h-[9rem]  mt-6 rounded-2xl shadow-2xl"
+          id="image" >
+            <img class="w-full h-full rounded-2xl" src="./img/arcade.jpg" alt="" />
           </div>
           <div class="text-light text-center mt-4">
-            <h2 class="text-[1.6rem]">Track Name</h2>
-            <h2 class="text-[.8rem]">Track Artist</h2>
+            <h2 class="text-[1.6rem]" id="track">Track Name</h2>
+            <h2 class="text-[.8rem]" id="artist">Track Artist</h2>
           </div>
-          <div class="text-gray flex items-center justify-center gap-6 w-full mt-6">
-            <div><i class="fa-solid fa-backward-step"></i></div>
-            <div
-              class="text-[2rem] bg-[#716F81] w-[4rem] h-[4rem] rounded-full flex items-center justify-center"
-            >
-              <i class="fa-solid fa-play"></i>
-            </div>
-            <!-- <span><i class="fa-solid fa-pause"></i></span> -->
-            <div><i class="fa-solid fa-forward-step"></i></div>
+          <div class="text-gray flex items-center justify-center gap-6 w-full mt-6" id="musicBox">
+            <button id="prev"><i class="fa-solid fa-backward-step"></i></button>
+            <button
+              class=" text-[2rem] bg-[#716F81] w-[4rem] h-[4rem] rounded-full flex items-center justify-center"
+             id="playBtn">
+            <span class=""id="play">  <i class="fa-solid fa-play"></i></span>  <span class="hidden"id="pause"><i class="fa-solid fa-pause"></i></span>
+            </button>
+            <button id="next"><i class="fa-solid fa-forward-step"></i></button>
           </div>
            <div class="mt-6 w-full flex flex-col justify-center items-center">
-           <div class="flex items-center justify-center w-7/12 gap-4"> 
-            <label for="time">00:00</label>
-            <input type="range" max="100" min="0" id="time" value="0" oninput="RangeSelector()">
-                <label for="time">00:00</label>
+           <div class="flex items-center justify-center lg:w-7/12 w-full  gap-4"> 
+            <audio src="./music/arcade.mp3" id="audio"></audio>
+            <label for="time " id="leftTime">00:00</label>
+            <input type="range" max="100" min="0" id="time" value="0" step=".1">
+                <label for="time " id="rightTime">00:00</label>
           </div>
-           <div class="mt-6 text-gray flex items-center justify-center w-4/12 gap-4"> 
-            <span><i class="fa-solid fa-volume-low"></i></span>  
-         <input type="range" max="100" min="0" id="vol" value="0" oninput="RangeSelector()">
-         <span><i class="fa-solid fa-volume-high"></i></span>
+           <div class="mt-6 text-gray flex items-center justify-center lg:w-4/12 w-9/12 gap-4"> 
+            <span id="volLow"><i class="fa-solid fa-volume-low"></i></span>  
+         <input type="range" max="1" min="0" id="volume" value="0"  step=".01" onchange="changeVolume(this.value)">
+         <span id="warning"><i class="fa-solid fa-volume-high"></i></span>
         </div>
+         <p id="messge" class="hidden text-red text-[.6rem] mt-4">Loud music can damage your hearing!</p>
         </div>
       </div>
     </div>
