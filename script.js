@@ -144,16 +144,21 @@ function updateSelectedDuration(e) {
 //Live update song Duration
 function liveDuration(e) {
   const { duration, currentTime } = e.srcElement;
-  let min = currentTime == null ? 0 : Math.floor(currentTime / 60);
+  let min = currentTime === null ? 0 : Math.floor(currentTime / 60);
   min = min < 10 ? '0' + min : min;
-  let sec = currentTime == null ? 0 : Math.floor(currentTime % 60);
+  let sec = currentTime === null ? 0 : Math.floor(currentTime % 60);
   sec = sec < 10 ? '0' + sec : sec;
   console.log(sec);
   leftTime.innerText = `${min}:${sec}`;
   console.log(min);
   console.log(sec);
   const totalDur = (duration / 60).toFixed(2);
-  rightTime.innerText = totalDur;
+  if (totalDur == 'NaN') {
+    rightTime.innerText = '00:00';
+  } else {
+    rightTime.innerText = totalDur;
+  }
+  console.log(totalDur);
 }
 
 next.addEventListener('click', nextSong);
